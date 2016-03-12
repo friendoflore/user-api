@@ -1,0 +1,53 @@
+LOCAL
+-----
+CREATE USER vvv
+
+curl --data-urlencode "username=testuser" --data-urlencode "password=test1234" -H "Accept: application/json" http://localhost:8080/user
+
+
+TRY TO "LOGIN" WITH POST REQUEST
+
+curl --data-urlencode "username=testuser" --data-urlencode "password=test1234" -H "Accept: application/json" http://localhost:8080/user/search
+
+
+EDIT USER
+---------
+BY KEY
+
+curl --data-urlencode "user_key=aglkZXZ-dXNlcnNyEQsSBFVzZXIYgICAgICAgAkM" --data-urlencode "username=changeduser" --data-urlencode "description=Testing a user description." --data-urlencode "state=Washington" -H "Accept: application/json" http://localhost:8080/edit
+
+curl --data-urlencode "user_key=aglkZXZ-dXNlcnNyEQsSBFVzZXIYgICAgICAgAkM" --data-urlencode username=changeduser" -H "Accept: application/json" http://localhost:8080/edit
+
+
+
+BY ID
+curl --data-urlencode "user_id=5066549580791808" --data-urlencode "username=changedBack" --data-urlencode "description=Testing a user description." --data-urlencode "state=Oregon" -H "Accept: application/json" http://localhost:8080/edit
+
+
+curl --data-urlencode "user_id=5066549580791808" --data-urlencode "username=changedAgain" --data-urlencode "description=Testing a user description." --data-urlencode "state=Washington" -H "Accept: application/json" http://localhost:8080/edit
+
+
+curl --data-urlencode "user_id=5066549580791808" --data-urlencode "username=changedMissing" --data-urlencode "description=Testing a user description." -H "Accept: application/json" http://localhost:8080/edit
+
+
+CLOUD
+-----
+CREATE USER vvv
+
+curl --data-urlencode "username=testuser" --data-urlencode "password=test1234" -H "Accept: application/json" http://user-api-1246.appspot.com/user
+
+
+TRY TO "LOGIN" WITH POST REQUEST
+
+curl --data-urlencode "username=testuser" --data-urlencode "password=test1234" -H "Accept: application/json" http://user-api-1246.appspot.com/user/search
+
+
+DELETE
+
+curl -X DELETE -H "Accept: application/json" http://localhost:8080/edit/5066549580791808
+
+
+
+
+
+
