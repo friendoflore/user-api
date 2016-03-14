@@ -95,19 +95,6 @@ class User(webapp2.RequestHandler):
 			# Delete the user entity
 			del_key.key.delete()
 			
-			# # Delete references to this senator entity in the state entity
-			# # Query the DB for the state that has this senator
-			# q = db_models.State.query(db_models.State.senators.IN([del_key.key]))
-			
-			# Returns a list of states
-			# update_state = q.fetch()
-			
-			# # Remove the senator's key from the state
-			# for x in update_state:
-			# 	x.senators.remove(del_key.key)
-
-			# 	# Update the state
-			# 	x.put()
 			return
 		else:
 			self.response.state = 400
@@ -137,7 +124,6 @@ class UserSearch(webapp2.RequestHandler):
 		results = {}
 		for x in userattempt:
 			if (x.password == self.request.get('password')):
-				# Take the user's key and use it to access their information using the user API
 				results = {'key' : x.key.id()}
 
 		self.response.write(json.dumps(results))

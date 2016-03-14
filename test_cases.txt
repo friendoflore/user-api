@@ -1,6 +1,6 @@
 LOCAL
 -----
-CREATE USER vvv
+CREATE USER
 
 curl --data-urlencode "username=testuser" --data-urlencode "password=test1234" -H "Accept: application/json" http://localhost:8080/user
 
@@ -19,7 +19,6 @@ curl --data-urlencode "user_key=aglkZXZ-dXNlcnNyEQsSBFVzZXIYgICAgICAgAkM" --data
 curl --data-urlencode "user_key=aglkZXZ-dXNlcnNyEQsSBFVzZXIYgICAgICAgAkM" --data-urlencode username=changeduser" -H "Accept: application/json" http://localhost:8080/edit
 
 
-
 BY ID
 curl --data-urlencode "user_id=5066549580791808" --data-urlencode "username=changedBack" --data-urlencode "description=Testing a user description." --data-urlencode "state=Oregon" -H "Accept: application/json" http://localhost:8080/edit
 
@@ -32,7 +31,7 @@ curl --data-urlencode "user_id=5066549580791808" --data-urlencode "username=chan
 
 CLOUD
 -----
-CREATE USER vvv
+CREATE USER
 
 curl --data-urlencode "username=testuser" --data-urlencode "password=test1234" -H "Accept: application/json" http://user-api-1246.appspot.com/user
 

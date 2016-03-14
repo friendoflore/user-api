@@ -11,9 +11,3 @@ class User(Model):
 	password = ndb.StringProperty(required=True)
 	description = ndb.StringProperty()
 	state = ndb.StringProperty()
-
-	# def to_dict(self):
-	# 	d = super(Model, self).to_dict()
-	# 	d['users'] = [s.id() for s in d['users']]
-	# 	return d
-
